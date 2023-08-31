@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "qrPbcPJ+qzJGGJ/NbgJn26CItqv9EMLAaw8Mu64o8bPKbHZFWHRULmvZB0PYmLrr0MbDnMQhqD0UgmMhLVIBXA==",
+  "dgSpecHash": "y5CNrxmzGVOVg68Q6EF9opqUu9L43QW7+4kLmPwYRI8/rzMPMCdYzmMg1AMo9UJEOTU4G/J20eGNpdvNsxYhMA==",
   "success": true,
   "projectFilePath": "/Users/jc/RiderProjects/Solution1/ConsoleApp1/ConsoleApp1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/jc/.nuget/packages/google.protobuf/4.0.0-rc2/google.protobuf.4.0.0-rc2.nupkg.sha512",
+    "/Users/jc/.nuget/packages/system.memory/4.5.2/system.memory.4.5.2.nupkg.sha512",
+    "/Users/jc/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
   "logs": []
 }

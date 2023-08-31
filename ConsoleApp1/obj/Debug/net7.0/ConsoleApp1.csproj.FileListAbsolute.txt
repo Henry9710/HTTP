@@ -13,3 +13,6 @@
 /Users/jc/RiderProjects/Solution1/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.pdb
 /Users/jc/RiderProjects/Solution1/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.genruntimeconfig.cache
 /Users/jc/RiderProjects/Solution1/ConsoleApp1/obj/Debug/net7.0/ref/ConsoleApp1.dll
+/Users/jc/RiderProjects/Solution1/ConsoleApp1/bin/Debug/net7.0/protobuf-net.dll
+/Users/jc/RiderProjects/Solution1/ConsoleApp1/bin/Debug/net7.0/protobuf-net.Core.dll
+/Users/jc/RiderProjects/Solution1/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.csproj.CopyComplete
