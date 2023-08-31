@@ -14,7 +14,7 @@ namespace HttpWebRequestQueueWithResume
             int total = 6;
             
             BlockingCollection<string> requestQueue = new BlockingCollection<string>();
-            AutoResetEvent autoResetEvent = new AutoResetEvent(true);
+            //AutoResetEvent autoResetEvent = new AutoResetEvent(true);
 
             Thread producer = new Thread(() =>
             {
