@@ -18,17 +18,29 @@ class Server
             NetworkStream stream = client.GetStream();
             BinaryReader reader = new BinaryReader(stream);
             BinaryWriter writer = new BinaryWriter(stream);
+            
 
             while (true)
             {
+                byte[] lengthBuffer = new byte[4];
+                byte[] payloadBuffer = new byte[1024];
+                int offset = 0;
+                int bytesRead = stream.Read(lengthBuffer, 0, lengthBuffer.Length);
+                if (bytesRead == 0) break;
+                int payloadLength = BitConverter.ToInt32(lengthBuffer, 0);
                 
-                int messageLength = reader.ReadInt32();
-                byte[] clientData = reader.ReadBytes(messageLength);
-                string clientMessage = Encoding.UTF8.GetString(clientData);
-                Console.Write("Client: " + clientMessage);
+                while (offset < payloadLength)
+                {
+                    bytesRead = stream.Read(payloadBuffer, offset, payloadLength - offset);
+                    if (bytesRead == 0) break;
+                    offset += bytesRead;
+                }
+                
+                string message = Encoding.UTF8.GetString(payloadBuffer, 0, payloadLength);
+                Console.WriteLine("Received: " + message);
 
                 // Send message
-                string serverMessage = clientMessage;
+                string serverMessage = message;
                 Console.WriteLine("Server: " + serverMessage);
                 byte[] serverData = Encoding.UTF8.GetBytes(serverMessage);
                 writer.Write(serverData.Length);
