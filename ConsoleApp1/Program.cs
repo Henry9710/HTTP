@@ -13,16 +13,15 @@ namespace HttpWebRequestQueueWithResume
             int maxConcurrency = 3;
             int total = 6;
             
-            BlockingCollection<string> requestQueue = new BlockingCollection<string>();
+            Queue<string> requestQueue = new Queue<string>();
             //AutoResetEvent autoResetEvent = new AutoResetEvent(true);
 
             Thread producer = new Thread(() =>
             {
                 for (int i = 1; i <= total; i++)
                 {
-                    requestQueue.Add($"https://static.runoob.com/images/demo/demo{i}.jpg");
+                    requestQueue.Enqueue($"https://static.runoob.com/images/demo/demo{i}.jpg");
                 }
-                requestQueue.CompleteAdding(); 
             });
             
             Thread[] consumers = new Thread[maxConcurrency];
@@ -30,8 +29,10 @@ namespace HttpWebRequestQueueWithResume
             {
                 consumers[i] = new Thread(() =>
                 {
-                    foreach (string url in requestQueue.GetConsumingEnumerable())
+                    string url = null;
+                    while (requestQueue.Count > 0)
                     {
+                        url = requestQueue.Dequeue();
                         ProcessRequest(url);
                     }
                 });
